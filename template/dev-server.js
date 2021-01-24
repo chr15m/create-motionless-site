@@ -20,16 +20,6 @@ server.start({
   middleware: [redirectToHTMLFiles] // you can add more middleware functions in here
 });
 
-// Use this code to do something if a particular type of file changes.
-// For example if you don't want to use the Makefile you can trigger
-// rebuilds here.
-
-/* liveServer.watcher.on("change", function(changePath) {
-  if (changePath.endsWith(".md")) {
-    console.log(changePath);
-  }
-}); */
-
 // This middleware ensures that HTML files can be browsed
 // without using the .html extension.
 
@@ -47,3 +37,17 @@ function redirectToHTMLFiles(req, res, next) {
     next();
   }
 }
+
+// watch for changes to this script itself and exit to restart it
+
+server.watcher.on("change", function(changePath) {
+  if (changePath == __filename) {
+    console.log(__filename.split("/").pop() + " changed, respawning.");
+    process.exit();
+  }
+
+  // you can add other file types in here if you want
+  // specific things to happen when certain types of files change
+  // e.g. if (changePath.endsWith(".scss")) { ... }
+  // or you can add to the Makefile
+});

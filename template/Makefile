@@ -24,7 +24,7 @@ node_modules: package.json
 
 serve: node_modules
 	@echo "Running the dev server."
-	./dev-server.js
+	while true; do ./dev-server.js; done
 
 watcher:
 	@echo "Watching source files for building."
