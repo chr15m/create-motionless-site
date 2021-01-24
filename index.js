@@ -11,12 +11,9 @@ const dir = name && args[0].replace(/-/g, '_');
 if (name) {
   fs.copySync(__dirname + "/template", name);
   fs.moveSync(name + "/gitignore", name + "/.gitignore");
-  fs.moveSync(name + "/src/NAME", name + "/src/" + dir);
   replace.sync({
     "files": [
       args[0] + "/**/**",
-      args[0] + "/src/" + dir + "/*.cljs",
-      args[0] + "/public/*"
     ],
     "from": "NAME",
     "to": name,
@@ -24,5 +21,5 @@ if (name) {
   });
   exec("cd " + name + "; git init");
 } else {
-  console.log("Usage: shadowfront APP-NAME");
+  console.log("Usage: motionless-site APP-NAME");
 }

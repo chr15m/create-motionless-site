@@ -1,40 +1,20 @@
-This is a [nodejs initializer](https://docs.npmjs.com/cli/init) to quickly get a ClojureScript + [shadow-cljs](https://shadow-cljs.org/) + [Reagent](https://reagent-project.github.io/) project up and running in one command.
-
-How to use it:
+Quickly get a [motionless](https://github.com/chr15m/motionless) static website up and running:
 
 ```
-npm init shadowfront YOUR-APP-NAME
+npm init motionless-site YOUR-APP-NAME
 ```
 
-Then you can start the server:
+Then start the live-reloading dev server and open <http://localhost:8000/> in your browser:
 
 ```
 cd YOUR-APP-NAME
 make watch
 ```
 
-Once shadow-cljs finishes compiling the project for the first time open these pages in your browser:
-
- * http://localhost:8000/ <- the running app
- * http://localhost:9630/ <- shadow-cljs debugging console
-
-> (tip: use `(tap> ...)` in your code to have a value show up in the "inspect" pane.
-
-Then open `src/YOUR-APP-NAME/core.cljs` in your editor and start hacking. 👍
-
-Then you can commit your changes as `git init` has already been run:
-
-```
-git add .
-git commit -m "Initial commit."
-```
-
 # Build
 
-To make a static release that you can publish on a hosting service:
+To make a release that you can publish on a static hosting service:
 
 ```
 make build
 ```
-
-This will copy everything in `public/` to the `build` folder and also build the main js artifact in there.

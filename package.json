@@ -1,10 +1,10 @@
 {
-  "name": "create-shadowfront",
-  "description": "Quickly get shadow-cljs + reagent up and running.",
-  "repository": "https://github.com/chr15m/create-shadowfront",
-  "version": "0.0.10",
+  "name": "create-motionless-site",
+  "description": "Start a motionless static site with live-reloading dev.",
+  "repository": "https://github.com/chr15m/create-motionless-site",
+  "version": "0.0.1",
   "bin": {
-    "create-shadow-cljs-app": "index.js"
+    "create-motionless-site": "index.js"
   },
   "dependencies": {
     "fs-extra": "^9.0.1",
