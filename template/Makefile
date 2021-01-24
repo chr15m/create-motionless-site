@@ -15,6 +15,7 @@ public/%.html: pages/%.md template.html make-page.js node_modules
 
 # Rule to make sure node_modules are installed
 node_modules: package.json
+	@echo "Installing node modules."
 	npm i && touch node_modules
 
 ### Rules for live serving and watching ###
@@ -22,12 +23,15 @@ node_modules: package.json
 .PHONY: watch serve watcher clean
 
 serve: node_modules
+	@echo "Running the dev server."
 	./dev-server.js
 
 watcher:
+	@echo "Watching source files for building."
 	while true; do $(MAKE) --silent -q || ( $(MAKE) || sleep 2 ); sleep 0.1; done
 
 watch:
+	@echo "Running the dev server and file watcher."
 	make --silent -j2 serve watcher
 
 clean:
