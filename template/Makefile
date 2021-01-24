@@ -30,7 +30,7 @@ watcher:
 	@echo "Watching source files for building."
 	while true; do $(MAKE) --silent -q || ( $(MAKE) || sleep 2 ); sleep 0.1; done
 
-watch:
+watch: node_modules
 	@echo "Running the dev server and file watcher."
 	make --silent -j2 serve watcher
 
